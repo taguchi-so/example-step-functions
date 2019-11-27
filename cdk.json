@@ -1,0 +1,22 @@
+{
+  "app": "npx ts-node bin/example-step-functions.ts",
+  "context": {
+    "dev": {
+      "description": "Development Example-CDK",
+      "vpcName": "vpc-ffffffffffffffff",
+      "privateSubnets": [
+        {
+          "subnetId": "subnet-fffffffffffffffff",
+          "availabilityZone": "ap-northeast-1a",
+          "routeTableId": "rtb-fffffffffffffffff"
+        },
+        {
+          "subnetId": "subnet-fffffffffffffffff",
+          "availabilityZone": "ap-northeast-1c",
+          "routeTableId": "rtb-fffffffffffffffff"
+        }
+      ],
+      "securityGroupID": "sg-fffffffffffffffff"
+    }
+  }
+}
