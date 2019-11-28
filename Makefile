@@ -6,7 +6,7 @@ APP_ENV              := dev
 REVISION             :=
 APP_ENVS             := dev stg prd
 STACK_NAME           := ExampleStepFunctionsStack
-
+DISPATCH_LAMBDA_NAME := ExampleStepFunctions-Dispatcher
 # Const
 #===============================================================
 name                 := example-step-functions
@@ -37,6 +37,7 @@ test: build
 
 ## ビルドを実行します
 build:
+	cd src && npm i
 	npm run build
 
 ## デプロイを実行します
@@ -53,6 +54,10 @@ describe: build cdk-synth
 
 ## リリース用のタスクを(lint fmt test build)を一連で行います
 release: lint fmt test build
+
+## StateMachineを実行します
+run:
+	aws lambda invoke --function-name $(DISPATCH_LAMBDA_NAME) /dev/stdout
 
 # cdk tasks
 cdk-deploy:.check-env .set-revision

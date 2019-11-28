@@ -1,10 +1,10 @@
-# example-cdk
+# example-step-functions
 
 AWS Cloud Development Kit Example for StepFunctions
 
 ## Getting Started
 
-- step functions のサンプルをdeployする
+- step functions のサンプルを deploy する
 
 ### Prerequisites
 
@@ -78,15 +78,21 @@ export CDK_DEFAULT_REGION="ap-northeast-1" \
 }
 ```
 
-destroy api-gateway and lambda and a record
+deploy lambda and state machine and cloudwatchevent
 
 ```shell
 make deploy
 aws lambda list-functions | jq '.Functions[].FunctionName'
+aws stepfunctions list-state-machines | jq '.stateMachines[].StateMachineName'
 ```
 
-destroy api-gateway and lambda and a record
+test run state machine
+```shell
+make run
+```
+
+destroy lambda and state machine and cloudwatchevent
 
 ```shell
-make deploy
+make destroy
 ```

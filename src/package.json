@@ -1,0 +1,7 @@
+{
+  "name": "example-step-functions-lamda",
+  "version": "0.1.0",
+  "dependencies": {
+    "aws-sdk": "2.580.0"
+  }
+}
